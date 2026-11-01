@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050816">
+    <title>Portfolio Jibran</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+
+    <div class="loader" id="loader" aria-live="polite">
+        <h1>JIBRAN</h1>
+        <p>Portfolio Loading...</p>
+    </div>
+
+    <nav class="navbar" aria-label="Navigasi utama">
+        <a class="logo" href="#home">Jibran</a>
+
+        <button class="hamburger" id="menuToggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="primaryMenu">
+            <span aria-hidden="true">☰</span>
+        </button>
+
+        <ul class="menu" id="primaryMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Aktifkan tema terang" aria-pressed="false">
+            🌙
+        </button>
+    </nav>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Hi, I'm Jibran</h1>
+                <p class="typing-text" id="typing" aria-live="polite"></p>
+                <p>
+                    Informatics Student passionate about Web Development,
+                    Cyber Security, Database Management, and creating
+                    interactive digital experiences.
+                </p>
+
+                <div class="hero-buttons">
+                    <a class="button" href="#projects">Lihat Project</a>
+                </div>
+
+                <div class="stats" aria-label="Ringkasan">
+                    <div>
+                        <h2>3+</h2>
+                        <p>Projects</p>
+                    </div>
+                    <div>
+                        <h2>1+</h2>
+                        <p>Years Learning</p>
+                    </div>
+                    <div>
+                        <h2>10+</h2>
+                        <p>Technologies</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="assets/img/profile.jpg" alt="Foto profil Jibran">
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="about-card">
+                <h2>Tentang Saya</h2>
+                <p>
+                    Halo, saya Jibran, mahasiswa Informatika yang memiliki
+                    minat pada Web Development, Cyber Security, dan Database
+                    Management. Saat ini saya sedang mengembangkan berbagai
+                    project untuk meningkatkan kemampuan saya di bidang
+                    teknologi.
+                </p>
+            </div>
+        </section>
+
+        <section class="skills section" id="skills">
+            <h2 class="section-title">My Skills</h2>
+
+            <div class="skills-container">
+                <article class="skill-card">
+                    <h3>HTML</h3>
+                    <p>Structure Website</p>
+                </article>
+                <article class="skill-card">
+                    <h3>CSS</h3>
+                    <p>Modern UI Design</p>
+                </article>
+                <article class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Interactive Features</p>
+                </article>
+                <article class="skill-card">
+                    <h3>PHP</h3>
+                    <p>Backend Development</p>
+                </article>
+                <article class="skill-card">
+                    <h3>MySQL</h3>
+                    <p>Database Management</p>
+                </article>
+                <article class="skill-card">
+                    <h3>C++</h3>
+                    <p>Data Structure</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="journey section">
+            <h2 class="section-title">My Journey</h2>
+
+            <div class="timeline">
+                <article class="timeline-item">
+                    <h3>2024</h3>
+                    <p>Mulai Belajar Pemrograman</p>
+                </article>
+                <article class="timeline-item">
+                    <h3>2025</h3>
+                    <p>Belajar Database dan SQL</p>
+                </article>
+                <article class="timeline-item">
+                    <h3>2026</h3>
+                    <p>Membuat Portfolio dan Project Web</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="projects section" id="projects">
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="project-container">
+                <article class="project-card">
+                    <h3>Sistem Antrian Rumah Sakit</h3>
+                    <p>
+                        Aplikasi manajemen antrian pasien menggunakan konsep
+                        Queue pada C++.
+                    </p>
+                    <button class="button project-details" type="button" data-title="Sistem Antrian Rumah Sakit" data-description="Project ini dibuat menggunakan C++ dengan konsep Queue untuk manajemen antrian pasien.">
+                        Lihat Detail
+                    </button>
+                </article>
+
+                <article class="project-card">
+                    <h3>WiFi Login Portal</h3>
+                    <p>Sistem login pengguna WiFi berbasis PHP dan MySQL.</p>
+                    <button class="button project-details" type="button" data-title="WiFi Login Portal" data-description="Sistem login pengguna WiFi berbasis PHP dan MySQL.">
+                        Lihat Detail
+                    </button>
+                </article>
+
+                <article class="project-card">
+                    <h3>Database Management</h3>
+                    <p>Project pengelolaan database menggunakan MySQL.</p>
+                    <button class="button project-details" type="button" data-title="Database Management" data-description="Project pengelolaan database menggunakan MySQL.">
+                        Lihat Detail
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact Me</h2>
+
+            <form class="contact-form" id="contactForm">
+                <label for="contactName">Nama</label>
+                <input id="contactName" name="name" type="text" placeholder="Nama Anda" autocomplete="name" required>
+
+                <label for="contactEmail">Email</label>
+                <input id="contactEmail" name="email" type="email" placeholder="Email Anda" autocomplete="email" required>
+
+                <label for="contactMessage">Pesan</label>
+                <textarea id="contactMessage" name="message" placeholder="Tulis pesan..." rows="6" required></textarea>
+
+                <button class="button" type="submit">Kirim Pesan</button>
+                <p class="form-status" id="contactStatus" role="status" hidden></p>
+            </form>
+        </section>
+
+        <section class="achievement section">
+            <h2 class="section-title">Achievements</h2>
+
+            <div class="achievement-container">
+                <article class="achievement-card">
+                    <h3>3+</h3>
+                    <p>Projects Completed</p>
+                </article>
+                <article class="achievement-card">
+                    <h3>100+</h3>
+                    <p>Hours Coding</p>
+                </article>
+                <article class="achievement-card">
+                    <h3><span class="counter" data-target="6">0</span>+</h3>
+                    <p>Technologies Learned</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="playground section">
+            <h2 class="section-title">Mini Tools</h2>
+            <div class="project-container">
+                <article class="project-card">
+                    <h3>Truth Table Generator</h3>
+                    <p>Generator tabel kebenaran logika sederhana.</p>
+                </article>
+                <article class="project-card">
+                    <h3>Queue Simulator</h3>
+                    <p>Visualisasi struktur data Queue.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="truth-table-section section" aria-labelledby="truthTitle">
+            <h2 class="section-title" id="truthTitle">Truth Table Generator</h2>
+            <form class="tool-form" id="truthForm">
+                <label for="logicInput">Operasi logika</label>
+                <input type="text" id="logicInput" name="logic" placeholder="Contoh: P AND Q" value="P AND Q" required>
+                <button class="button" type="submit">Generate</button>
+            </form>
+            <p class="form-status" id="truthStatus" role="status" aria-live="polite"></p>
+            <div id="truthResult" class="table-container"></div>
+        </section>
+
+        <section class="queue-section section">
+            <h2 class="section-title">Queue Simulator</h2>
+            <p class="queue-subtitle">Simulasi Antrian Rumah Sakit</p>
+
+            <form class="queue-controls" id="queueForm">
+                <input type="text" id="queueInput" placeholder="Nama Pasien" aria-label="Nama pasien">
+                <button class="button" type="submit">Tambah</button>
+                <button class="button button-secondary" id="dequeueButton" type="button">Panggil</button>
+                <button class="button button-secondary" id="clearQueueButton" type="button">Reset</button>
+            </form>
+
+            <p class="form-status" id="queueStatus" role="status" aria-live="polite"></p>
+            <div id="queueDisplay" class="queue-display" aria-live="polite"></div>
+        </section>
+
+        <section class="password-section section">
+            <h2 class="section-title">Password Checker</h2>
+
+            <div class="tool-form password-tool">
+                <label for="passwordInput">Password</label>
+                <input type="password" id="passwordInput" placeholder="Masukkan Password" aria-label="Masukkan password">
+                <button class="button" id="checkPasswordButton" type="button">Check</button>
+            </div>
+
+            <p id="passwordResult" class="form-status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h2>Let's Connect</h2>
+        <p>© 2026 Jibran Portfolio</p>
+    </footer>
+
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" hidden>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" type="button" aria-label="Tutup detail project">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="topBtn" type="button" aria-label="Kembali ke atas" hidden>↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
