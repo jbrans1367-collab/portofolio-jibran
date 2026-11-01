@@ -28,6 +28,9 @@ const savedTheme = window.localStorage.getItem("theme");
 
 function applyTheme(isLight) {
     document.body.classList.toggle("light-mode", isLight);
+    document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", isLight ? "#bdeaff" : "#17152f");
 
     if (!themeToggle) {
         return;

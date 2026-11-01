@@ -48,7 +48,7 @@ async function loadMessages(){
             "messagesList"
         );
 
-    messagesDiv.innerHTML = "";
+    messagesDiv.replaceChildren();
 
     const querySnapshot =
         await getDocs(
@@ -58,36 +58,34 @@ async function loadMessages(){
             )
         );
 
+    if (querySnapshot.empty) {
+        const emptyState = document.createElement("p");
+        emptyState.className = "empty-state";
+        emptyState.textContent = "Belum ada pesan masuk.";
+        messagesDiv.append(emptyState);
+        return;
+    }
+
     querySnapshot.forEach(
         (doc) => {
 
             const data =
             doc.data();
 
-            messagesDiv.innerHTML += `
+            const messageCard = document.createElement("article");
+            messageCard.className = "message-card";
 
-            <div style="
-                margin-top:20px;
-                padding:20px;
-                border:1px solid #3b82f6;
-                border-radius:15px;
-            ">
+            const name = document.createElement("h3");
+            name.textContent = data.nama || "Tanpa nama";
 
-                <h3>
-                    ${data.nama}
-                </h3>
+            const email = document.createElement("p");
+            email.textContent = data.email || "Email tidak tersedia";
 
-                <p>
-                    ${data.email}
-                </p>
+            const message = document.createElement("p");
+            message.textContent = data.pesan || "Pesan kosong";
 
-                <p>
-                    ${data.pesan}
-                </p>
-
-            </div>
-
-            `;
+            messageCard.append(name, email, message);
+            messagesDiv.append(messageCard);
 
         }
     );

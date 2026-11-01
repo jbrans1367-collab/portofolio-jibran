@@ -995,32 +995,32 @@ body{
 
 }
 
-/* Sunny cartoon theme */
 :root {
-    color-scheme: light;
-    --background: #c8edff;
-    --text: #28233c;
-    --muted-text: #5d5870;
-    --surface: #fffdf7;
-    --surface-border: #28233c;
-    --accent: #ff6b6b;
-    --accent-light: #725ac1;
-    --track: #ffd166;
+    color-scheme: dark;
+    --background: #17152f;
+    --text: #fff8df;
+    --muted-text: #d3cee8;
+    --surface: #292644;
+    --surface-border: #fff8df;
+    --accent: #ff8b8b;
+    --accent-light: #d7c4f2;
+    --track: #555071;
     --cartoon-yellow: #ffd166;
     --cartoon-mint: #8de0c1;
-    --cartoon-lilac: #d7c4f2;
 }
 
 body {
     isolation: isolate;
+    overflow-x: hidden;
     background-color: var(--background);
-    background-image: linear-gradient(180deg, #c8edff 0%, #fff3c4 100%);
+    background-image: linear-gradient(180deg, #17152f 0%, #24264a 55%, #34486c 100%);
     background-attachment: fixed;
     color: var(--text);
     font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
 }
 
 body.light-mode {
+    color-scheme: light;
     --background: #fff0c9;
     --text: #28233c;
     --muted-text: #5d5870;
@@ -1029,7 +1029,7 @@ body.light-mode {
     --accent: #f45b69;
     --accent-light: #6850a4;
     --track: #f6bd60;
-    background-image: linear-gradient(180deg, #ffe2b8 0%, #fff4d6 100%);
+    background-image: linear-gradient(180deg, #bdeaff 0%, #fff3cc 72%, #ffdfaa 100%);
 }
 
 .stars {
@@ -1040,7 +1040,7 @@ body.light-mode {
         radial-gradient(circle, rgba(255, 209, 102, 0.85) 2px, transparent 3px);
     background-position: 0 0, 40px 36px;
     background-size: 88px 88px, 112px 112px;
-    opacity: 0.65;
+    opacity: 0.9;
     animation: cartoon-sky-drift 32s linear infinite;
 }
 
@@ -1051,18 +1051,28 @@ body.light-mode {
     font-size: clamp(42px, 7vw, 78px);
     opacity: 0.8;
     pointer-events: none;
+    content: "✦";
+    animation: cartoon-cloud-drift 48s linear infinite;
 }
 
 .stars::before {
     top: 14%;
-    content: "☁️";
-    animation: cartoon-cloud-drift 48s linear infinite;
 }
 
 .stars::after {
     top: 58%;
+    animation-delay: -24s;
+    content: "✧";
+}
+
+body.light-mode .stars {
+    opacity: 0.35;
+}
+
+body.light-mode .stars::before,
+body.light-mode .stars::after {
     content: "☁️";
-    animation: cartoon-cloud-drift 62s linear infinite reverse;
+    opacity: 0.8;
 }
 
 .cursor-glow {
@@ -1098,10 +1108,26 @@ body.light-mode {
     height: clamp(150px, 23vw, 290px);
     border: 5px solid var(--text);
     border-radius: 50%;
+    display: grid;
+    place-items: center;
     background: var(--cartoon-yellow);
     filter: none;
     opacity: 1;
     animation: cartoon-sun-bob 5s ease-in-out infinite;
+}
+
+body:not(.light-mode) .hero::before {
+    border: 0;
+    background: transparent;
+    color: var(--cartoon-yellow);
+    content: "☾";
+    font-size: clamp(150px, 23vw, 290px);
+    line-height: 1;
+    text-shadow: 5px 5px 0 var(--text);
+}
+
+body.light-mode .hero::before {
+    content: "";
 }
 
 .hero-content,
@@ -1129,8 +1155,10 @@ body.light-mode {
     padding: 10px 14px;
     transform: rotate(-1deg);
     border: 4px solid var(--text);
+    border-radius: 14px;
     background: var(--cartoon-yellow);
     box-shadow: 6px 6px 0 var(--text);
+    color: #28233c;
     font-size: clamp(2rem, 5vw, 4rem);
     line-height: 1.05;
 }
@@ -1160,6 +1188,17 @@ body.light-mode {
     line-height: 1.8;
 }
 
+.breaking-news {
+    border-block: 2px solid var(--text);
+    background: var(--cartoon-yellow);
+    color: var(--text);
+}
+
+body:not(.light-mode) .breaking-news {
+    background: #35304f;
+    color: var(--text);
+}
+
 .btn,
 .button {
     border: 3px solid var(--text);
@@ -1180,7 +1219,7 @@ body.light-mode {
 .btn-outline,
 .button-secondary {
     background: var(--cartoon-yellow);
-    color: var(--text);
+    color: #28233c;
 }
 
 .hero-image img {
@@ -1231,6 +1270,27 @@ body.light-mode {
     box-shadow: 6px 6px 0 var(--text);
     color: var(--text);
     backdrop-filter: none;
+}
+
+body:not(.light-mode) .skill-card:nth-child(4n + 1),
+body:not(.light-mode) .project-card:nth-child(3n + 1),
+body:not(.light-mode) .timeline-item:nth-child(3n + 1),
+body:not(.light-mode) .achievement-card:nth-child(3n + 1) {
+    background: #39334f;
+}
+
+body:not(.light-mode) .skill-card:nth-child(4n + 2),
+body:not(.light-mode) .project-card:nth-child(3n + 2),
+body:not(.light-mode) .timeline-item:nth-child(3n + 2),
+body:not(.light-mode) .achievement-card:nth-child(3n + 2) {
+    background: #29443f;
+}
+
+body:not(.light-mode) .skill-card:nth-child(4n + 3),
+body:not(.light-mode) .project-card:nth-child(3n + 3),
+body:not(.light-mode) .timeline-item:nth-child(3n + 3),
+body:not(.light-mode) .achievement-card:nth-child(3n + 3) {
+    background: #373552;
 }
 
 .about-card h2,
@@ -1289,7 +1349,10 @@ body.light-mode {
 .visitor-card {
     border-radius: 24px;
     background: var(--cartoon-yellow);
-    box-shadow: 6px 6px 0 var(--text);
+}
+
+body:not(.light-mode) .visitor-card {
+    background: #45405e;
 }
 
 .visitor-card p {
@@ -1334,6 +1397,10 @@ body.light-mode {
     background: rgba(255, 253, 247, 0.75);
 }
 
+body:not(.light-mode) .footer {
+    background: rgba(23, 21, 47, 0.72);
+}
+
 .back-to-top {
     border: 3px solid var(--text);
     background: var(--cartoon-yellow);
@@ -1350,6 +1417,10 @@ body.light-mode {
     border-radius: 24px;
     background: var(--surface);
     box-shadow: 8px 8px 0 var(--text);
+}
+
+body:not(.light-mode) .modal-content {
+    background: #292644;
 }
 
 .modal-content h2,

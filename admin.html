@@ -1,80 +1,182 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c8edff">
+    <title>Admin Dashboard</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --sky: #c8edff;
+            --cream: #fff3c4;
+            --ink: #28233c;
+            --muted: #5d5870;
+            --paper: #fffdf7;
+            --coral: #ff6b6b;
+            --yellow: #ffd166;
+            --mint: #d9f5e6;
+        }
 
-<meta charset="UTF-8">
+        * {
+            box-sizing: border-box;
+        }
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+        body {
+            position: relative;
+            isolation: isolate;
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 20px;
+            overflow-x: hidden;
+            background: linear-gradient(180deg, var(--sky), var(--cream));
+            color: var(--ink);
+            font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+        }
 
-<title>Admin Dashboard</title>
+        body::before,
+        body::after {
+            position: fixed;
+            z-index: -1;
+            font-size: 64px;
+            pointer-events: none;
+            content: "\2601";
+            animation: cloud-drift 32s linear infinite;
+        }
 
-<style>
+        body::before {
+            top: 12%;
+            left: -100px;
+        }
 
-body{
+        body::after {
+            top: 64%;
+            left: -180px;
+            opacity: 0.65;
+            animation-delay: -16s;
+        }
 
-    background:#050816;
+        .dashboard {
+            width: min(100%, 900px);
+            margin: 0 auto;
+        }
 
-    color:white;
+        .dashboard-header {
+            margin-bottom: 32px;
+            text-align: center;
+        }
 
-    font-family:Poppins,sans-serif;
+        .dashboard-header h1 {
+            display: inline-block;
+            margin: 0;
+            padding: 12px 24px;
+            transform: rotate(-1deg);
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            background: var(--yellow);
+            box-shadow: 5px 5px 0 var(--ink);
+            font-size: clamp(2rem, 7vw, 3rem);
+        }
 
-    padding:40px;
-}
+        .dashboard-header p {
+            margin: 20px 0 0;
+            color: var(--muted);
+        }
 
-.card{
+        .card {
+            margin-bottom: 24px;
+            padding: 28px;
+            border: 3px solid var(--ink);
+            border-radius: 22px;
+            background: var(--paper);
+            box-shadow: 6px 6px 0 var(--ink);
+        }
 
-    background:
-    rgba(255,255,255,.05);
+        .card h2 {
+            margin: 0 0 18px;
+            font-size: 1.5rem;
+        }
 
-    padding:30px;
+        .visitor-count {
+            margin: 0;
+            color: var(--coral);
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+        }
 
-    border-radius:20px;
+        .message-list {
+            display: grid;
+            gap: 16px;
+        }
 
-    margin-bottom:20px;
-}
+        .message-card {
+            padding: 18px;
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            background: var(--mint);
+            overflow-wrap: anywhere;
+        }
 
-h1{
+        .message-card h3 {
+            margin: 0 0 8px;
+        }
 
-    color:#3b82f6;
-}
+        .message-card p {
+            margin: 8px 0 0;
+        }
 
-</style>
+        .empty-state {
+            margin: 0;
+            color: var(--muted);
+        }
 
+        @keyframes cloud-drift {
+            to {
+                transform: translateX(calc(100vw + 280px));
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 32px 16px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <h1>Admin Dashboard</h1>
+            <p>Ringkasan aktivitas portfolio</p>
+        </header>
 
-<h1>
-Admin Dashboard
-</h1>
+        <section class="card" aria-labelledby="visitorTitle">
+            <h2 id="visitorTitle">Total Visitors</h2>
+            <p class="visitor-count" id="visitorCount" aria-live="polite">Loading...</p>
+        </section>
 
-<div class="card">
+        <section class="card" aria-labelledby="messagesTitle">
+            <h2 id="messagesTitle">Pesan Masuk</h2>
+            <div class="message-list" id="messagesList" aria-live="polite">
+                <p class="empty-state">Loading...</p>
+            </div>
+        </section>
+    </main>
 
-    <h2>
-        Total Visitors
-    </h2>
-
-    <h1 id="visitorCount">
-        Loading...
-    </h1>
-
-<div class="card">
-
-    <h2>
-        Pesan Masuk
-    </h2>
-
-    <div id="messagesList">
-
-        Loading...
-
-    </div>
-
-</div>
-
-<script type="module"
-src="js/admin.js"></script>
-
+    <script type="module" src="js/admin.js"></script>
 </body>
 </html>
