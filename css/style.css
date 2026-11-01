@@ -1,7 +1,7 @@
 ﻿:root {
     color-scheme: dark;
     --background: #050816;
-    --text: #fff;
+    --text: #ffffff;
     --muted-text: #cbd5e1;
     --surface: rgba(255, 255, 255, 0.05);
     --surface-border: rgba(255, 255, 255, 0.1);
@@ -43,6 +43,11 @@ body.light-mode {
     --track: #cbd5e1;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 button,
 input,
 textarea {
@@ -60,7 +65,7 @@ a {
     left: 50%;
     z-index: 1000;
     display: flex;
-    width: 80%;
+    width: min(80%, 1200px);
     align-items: center;
     justify-content: space-between;
     gap: 24px;
@@ -111,7 +116,6 @@ a {
 
 .theme-toggle,
 .hamburger {
-    flex: 0 0 auto;
     border: 0;
     background: transparent;
     color: var(--text);
@@ -130,10 +134,10 @@ a {
 .hero {
     position: relative;
     display: flex;
-    width: 90%;
+    width: min(90%, 1200px);
     min-height: 100vh;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 40px;
     margin: 0 auto;
     padding: 120px 0 40px;
@@ -152,15 +156,25 @@ a {
     opacity: 0.15;
 }
 
+.hero-content,
+.hero-visual {
+    flex: 1;
+}
+
 .hero-content {
     max-width: 600px;
 }
 
 .hero-content h1 {
     font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.1;
 }
 
-.hero-content > p:not(.typing-text) {
+.hero-content h1 span {
+    color: var(--accent-light);
+}
+
+.hero-content > p {
     margin-top: 20px;
     color: var(--muted-text);
     line-height: 1.8;
@@ -173,13 +187,14 @@ a {
     font-size: 1.5rem;
 }
 
-.hero-buttons {
+.hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 25px;
+    margin-top: 28px;
 }
 
+.btn,
 .button {
     display: inline-flex;
     min-height: 48px;
@@ -195,15 +210,24 @@ a {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.btn:hover,
 .button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
+.btn-outline,
 .button-secondary {
     border: 1px solid var(--accent);
     background: transparent;
     color: var(--text);
+}
+
+.hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
 
 .hero-image img {
@@ -211,15 +235,43 @@ a {
     height: 300px;
     border: 4px solid var(--accent);
     border-radius: 50%;
-    box-shadow: 0 0 20px var(--accent), 0 0 40px #2563eb;
+    box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(37, 99, 235, 0.8);
     object-fit: cover;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    background: #2563eb;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
 }
 
 .stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 28px;
+    margin-top: 36px;
+}
+
+.stats div {
+    min-width: 120px;
 }
 
 .stats h2 {
@@ -284,7 +336,9 @@ a {
 .project-card,
 .skill-card,
 .achievement-card,
-.timeline-item {
+.timeline-item,
+.edu-card,
+.exp-card {
     border: 1px solid var(--surface-border);
     border-radius: 20px;
     background: var(--surface);
@@ -306,7 +360,9 @@ a {
 .project-card p,
 .skill-card p,
 .timeline-item p,
-.achievement-card p {
+.achievement-card p,
+.edu-card p,
+.exp-card p {
     color: var(--muted-text);
     line-height: 1.8;
 }
@@ -321,16 +377,16 @@ a {
 }
 
 .skill-card {
+    display: flex;
     width: min(100%, 240px);
+    min-height: 110px;
+    align-items: center;
+    justify-content: center;
     padding: 25px;
+    color: var(--text);
+    font-weight: 600;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.skill-card h3,
-.project-card h3 {
-    margin-bottom: 12px;
-    color: var(--accent-light);
 }
 
 .skill-card:hover,
@@ -338,6 +394,34 @@ a {
 .achievement-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 0 24px rgba(59, 130, 246, 0.35);
+}
+
+.education,
+.experience {
+    display: grid;
+    gap: 24px;
+    justify-items: center;
+}
+
+.edu-card,
+.exp-card {
+    width: min(100%, 700px);
+    padding: 28px;
+}
+
+.edu-card h3,
+.exp-card h3,
+.project-card h3,
+.timeline-item h3 {
+    margin-bottom: 12px;
+    color: var(--accent-light);
+}
+
+.edu-card span {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .journey {
@@ -354,11 +438,6 @@ a {
 .timeline-item {
     padding: 25px;
     border-left: 5px solid var(--accent);
-}
-
-.timeline-item h3 {
-    margin-bottom: 8px;
-    color: var(--accent-light);
 }
 
 .project-card {
@@ -549,8 +628,8 @@ a {
     text-align: center;
 }
 
-.footer h2 {
-    margin-bottom: 16px;
+.footer h3 {
+    margin-bottom: 10px;
     color: var(--accent);
 }
 
@@ -708,7 +787,7 @@ textarea:focus-visible {
         height: 220px;
     }
 
-    .hero-buttons,
+    .hero-actions,
     .stats {
         justify-content: center;
     }
@@ -775,43 +854,4 @@ textarea:focus-visible {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
-}
-.social-links{
-
-    display:flex;
-
-    gap:15px;
-
-    margin-top:25px;
-}
-
-.social-links a{
-
-    width:50px;
-    height:50px;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    border-radius:12px;
-
-    background:rgba(255,255,255,0.05);
-
-    color:white;
-
-    text-decoration:none;
-
-    transition:.3s;
-}
-
-.social-links a:hover{
-
-    transform:translateY(-5px);
-
-    background:#2563eb;
-
-    box-shadow:
-    0 0 20px #2563eb;
 }
