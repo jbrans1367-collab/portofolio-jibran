@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050816" />
+    <meta name="theme-color" content="#f7f1e8" />
     <title>Portfolio Jibran</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   </head>
@@ -19,6 +19,9 @@
     <div class="loader" id="loader" aria-live="polite">
       <h1>JIBRAN</h1>
       <p>Portfolio Loading...</p>
+    </div>
+    <div class="breaking-news" aria-label="Berita terbaru">
+      BREAKING NEWS • Portfolio now powered by Firebase • Full Stack Portfolio • Contact Form Database Active • Visitor Tracking Enabled
     </div>
 
     <nav class="navbar" aria-label="Navigasi utama">
@@ -44,13 +47,12 @@
     <main>
       <section class="hero" id="home">
         <div class="hero-content">
-          <h1>Hi, I'm <span>Jibran</span></h1>
-          <h3 id="typing" class="typing-text" aria-live="polite"></h3>
-          <p>
-            Informatics Student passionate about Web Development, Cyber Security, Database Management,
+          <h1 class="newspaper-title">THE JIBRAN TIMES</h1>
+          <p class="edition">Volume 01 • November 2026</p>
+          <p class="hero-intro">
+            Informatics student passionate about web development, cyber security, database management,
             and creating interactive digital experiences.
           </p>
-
           <div class="hero-actions">
             <a class="btn" href="assets/cv/cv.pdf">View Resume</a>
             <a class="btn btn-outline" href="#projects">View Projects</a>
@@ -94,9 +96,16 @@
         </div>
       </section>
 
+      <section class="visitor-section" aria-label="Statistik pengunjung">
+        <div class="visitor-card">
+          <h2>Total Visitors</h2>
+          <p id="visitorCount" aria-live="polite">0</p>
+        </div>
+      </section>
+
       <section class="about section" id="about">
         <div class="about-card">
-          <h2>Tentang Saya</h2>
+          <h2>ABOUT THE AUTHOR</h2>
           <p>
             Halo, saya Jibran, mahasiswa Informatika yang memiliki minat pada Web Development,
             Cyber Security, dan Database Management. Saat ini saya sedang mengembangkan berbagai
@@ -105,20 +114,13 @@
         </div>
       </section>
 
-      <section id="education" class="education section">
-        <h2 class="section-title">Education</h2>
-
-        <div class="edu-card">
+      <section class="education section" id="education">
+        <h2 class="section-title">Academic Background</h2>
+        <article class="edu-card">
           <h3>Universitas Pembangunan Nasional "Veteran"</h3>
-          <p>S1 Informatika</p>
-          <span>2025 - Sekarang</span>
-        </div>
-
-        <div class="edu-card">
-          <h3>SMA MBS Yogyakarta</h3>
-          <p>IPS</p>
-          <span>2022 - 2025</span>
-        </div>
+          <p>Bachelor of Informatics</p>
+          <span>2025 - Present</span>
+        </article>
       </section>
 
       <section class="skills section" id="skills">
@@ -156,12 +158,12 @@
       </section>
 
       <section class="projects section" id="projects">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title">Featured Projects</h2>
 
         <div class="project-container">
           <article class="project-card">
-            <h3>Sistem Antrian Rumah Sakit</h3>
-            <p>Aplikasi manajemen antrian pasien menggunakan konsep Queue pada C++.</p>
+            <h3>Hospital Queue System:</h3>
+            <p>Building a Better Healthcare Queue Experience</p>
             <button class="button project-details" type="button" data-title="Sistem Antrian Rumah Sakit" data-description="Project ini dibuat menggunakan C++ dengan konsep Queue untuk manajemen antrian pasien.">
               Lihat Detail
             </button>
@@ -186,7 +188,7 @@
       </section>
 
       <section class="contact section" id="contact">
-        <h2 class="section-title">Contact Me</h2>
+        <h2 class="section-title">CONTACT THE EDITOR</h2>
 
         <form class="contact-form" id="contactForm">
           <label for="contactName">Nama</label>
@@ -307,10 +309,7 @@
 
     <script src="js/script.js"></script>
 
-    <script type="module" src="js/firebase.js"></script>
-
     <script type="module" src="js/contact.js"></script>
-
+    <script type="module" src="js/visitor.js"></script>
   </body>
 </html>
-
